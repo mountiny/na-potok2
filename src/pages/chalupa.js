@@ -1,7 +1,7 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/SEO.js"
+import SEO from "../components/SEO"
 import AnimateIn from '../components/AnimateIn'
 import UnderlineLinkInter from "../components/UnderlineLinkInter"
 import ImageSlider from "../components/imageSlider"

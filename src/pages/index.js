@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/SEO.js"
+import SEO from "../components/SEO"
 import AnimateIn from '../components/AnimateIn'
 
 import ImageSlider from "../components/imageSlider"
