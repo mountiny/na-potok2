@@ -1,128 +1,149 @@
-import * as React from "react"
+import React from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
+import SEO from "../components/seo"
+import AnimateIn from '../components/AnimateIn'
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
+import ImageSlider from "../components/imageSlider"
+import IntroImageSlider from "../components/introImageSlider"
+import WideContainer from "../components/WideContainer"
+import NarrowContainer from "../components/NarrowContainer"
+import UnderlineLinkInter from "../components/UnderlineLinkInter"
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
+import Voda from '../components/svg/voda.js'
+import Lipa from '../components/svg/lipa.js'
+import Dvere from '../components/svg/dvere.js'
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+// import ChataImg from '../components/svg/chataGrey.js'
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+const IndexPage = ({location}) => {
 
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+  return (
+    <Layout location={location}>
+      <SEO title="Na potok" />
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
-export const Head = () => <Seo title="Home" />
+      {/* INTRO PAGE START */}
+
+      <section className="landing-page">
+        {/* <div className="title absolute flex justify-center items-center content-center">
+          <h1 className='potok text-center uppercase'>na chalupu</h1>
+        </div> */}
+        <IntroImageSlider
+          images={['34', '43', '40intro']}
+          />
+      </section>
+
+      {/* INTRO PAGE END */}
+      <section className="bg-primary">
+        <NarrowContainer className='text-black'>
+
+          <AnimateIn >
+            <div className="central-text-block pb-16 text-center">  
+            <div className="centered-block inline-block leading-loose max-w-6xl text-center pb-24 pt-8 text-black">
+              <h3 className="pt-32 pb-16 potok uppercase">
+                Náš příběh
+              </h3>
+                
+                <p className="leading-loose">
+                  Jsme parta přátel, která miluje úniky do přírody, klidu a&nbsp;našich oblíbených kopců.<br />
+
+                  Před nedávnem nám padla do oka chalupa na krásné polosamotě, jejíž atmosféru perfektně vystihuje jednoduchý popis - ticho, klid a&nbsp;hory. <br />
+                  Nádherné stavení, linoucí se potůček, staleté lípy a&nbsp;přítomnost kamenných pilířů bývalé stodoly dotváří obraz, kterému jen těžko odolat. Spolu s&nbsp;pozadím, které malují kopce Jeseníků a&nbsp;Králického Sněžníku, je historická chalupa
+                  jen posledním dílkem skládačky, který jsme hledali... a&nbsp;pustili se do rekonstrukce...<br />
+
+                  Po tisících odvezených a&nbsp;přivezených kolečkách, stovkách hodin práce, měsících ladění, vymýšlení a&nbsp;přemýšlení, nekonečné trpělivosti všech zúčastněných a&nbsp;nezměrné ochoty pomocníků a&nbsp;kamarádů jsme chalupě vdechli nový život, náboj a&nbsp;atmosféru, o&nbsp;kterou bychom se s&nbsp;Vámi chtěli podělit...
+            </p>   
+              </div>
+            </div>
+          </AnimateIn>
+        </NarrowContainer>
+      </section>
+      <section>
+        <WideContainer className="text-black">
+           <div className="relative w-full mt-32 text-black">
+            <AnimateIn>
+               <h3 className="pt-16 pb-32 potok w-full text-center uppercase">
+                Co je Na Potok?
+              </h3>
+            <div className="grid grid-cols-3 lg:grid-cols-1">
+              <div className="flex flex-col justify-start items-center px-16 lg:mb-20">
+                <div className="h-72 w-full flex justify-center items-center">
+                  
+                  <Lipa 
+                    width={160}
+                    className='chata-img mb-12' />
+                    
+                </div>
+                <span className="text-center potok text-3xl font-bold py-8 uppercase">
+                  Nádherné místo
+                </span>
+                <div className="text-block w-full pt-6 text-center">
+                  150 let staré stavení, torzo bývalé stodoly, linoucí se potůček a&nbsp;úchvatné výhledy na kopce Jeseníků, Králického Sněžníku a&nbsp;Orlických hor.
+                </div>
+              </div>
+              <div className="flex flex-col  justify-start items-center px-16 lg:mb-20">
+                  <div className="h-72 w-full flex justify-center items-center">
+                    
+                  <Dvere 
+                    width={200}
+                    // height={160.25}
+                    // viewBox="0 0 263.68 202.25"
+                    className='chata-img mb-16 mt-8' />
+                </div>
+                <span className="text-center potok text-3xl font-bold py-8 uppercase">
+                  Pohodlné ubytování
+                </span>
+                <div className="text-block w-full pt-6 text-center">
+                  Máme 5&nbsp;pokojů, 16&nbsp;lůžek a&nbsp;spousty místa pro relax i&nbsp;zábavu. A&nbsp;chceme, abyste se u&nbsp;nás měli jako v&nbsp;bavlnce!
+                </div>
+              </div>
+                <div className="flex flex-col  justify-start items-center px-16">
+                  <div className="h-72 w-full flex justify-center items-center">
+                  <Voda 
+                    width={200}
+                    // height={200.05}
+                    // viewBox="0 0 289.87 280.05"
+                      className='chata-img mb-12' />
+                  </div>
+                  <span className="text-center potok text-3xl font-bold py-8 uppercase">
+                    Nekonečné vyžití
+                  </span>
+                  <div className="text-block w-full pt-6 text-center">
+                    Jaro - léto - podzim - zima... Na ročním období nezáleží. Na naší chalupě je pořád co dělat a&nbsp;kam v&nbsp;okolí se vydat.
+                  </div>
+              </div>
+            </div>
+            </AnimateIn>
+            
+            <div className="relative flex justify-center items-center mt-48">
+              <AnimateIn className='w-full mx-auto relative' style={ {maxWidth: "1200px"}}>
+              
+                <ImageSlider 
+                  images={['62', '28', '42', '2', '19']}
+                  className={''}
+                  height={'780px'}
+                  maxHeight={'782px'}
+                />
+              </AnimateIn>
+            </div>
+
+            <div className="relative w-full my-32 text-black">
+              <AnimateIn>
+                <span className="pt-16 block pb-0 text-5xl lg:text-3xl potok w-full text-center">
+                  <UnderlineLinkInter link="/cenik/" text={`Zarezervujte si u nás termín`}>
+                      
+                    </UnderlineLinkInter>
+                </span>
+              </AnimateIn>
+            </div>
+        </div>
+        </WideContainer>
+      </section>
+
+    </Layout>
+  )
+}
+
 
 export default IndexPage
